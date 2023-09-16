@@ -32,6 +32,7 @@ void BehaviorPlayer::Init()
 	GetParent()->GetMaterial()->SetDebugDrawColor(&OutLineColor);
 	GetParent()->GetTransform()->UseEulerAnglesFlag(false);//this means that the Player game object will not store x,y and z rotation values. The object's rotation transformation matrix will be directly modified instead.
 }
+
 void BehaviorPlayer::Update(float dt)
 {
 	if (PlayerPlanetoid != 0)
@@ -142,6 +143,7 @@ void BehaviorPlayer::DoIceMovement(float dt)
 	TraceMessage("Velocity watch", "velocity y: %f", Vel.y);
 	
 }
+
 void BehaviorPlayer::CameraControl(float dt)
 {
 	glm::vec4 CurrCamPos = *(GetCurrentScene()->GetCamera()->GetPos());
@@ -186,6 +188,7 @@ void BehaviorPlayer::SpriteRotation()//the game object is a 3d cube, but there i
 		PlayerSpriteObject->SetTexture("flossy_side.png");
 	}
 }
+
 void BehaviorPlayer::ChangeUpDirection(glm::vec4* NewUp, float AngleOfRotation)
 {
 	glm::vec4 AxisOfRotation = glm::normalize(Aff_Cross(CurrentUpDirection, *NewUp));
